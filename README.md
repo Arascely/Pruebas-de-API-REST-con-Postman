@@ -30,7 +30,7 @@ A continuación, se detalla la evidencia de las peticiones ejecutadas:
 # Pruebas de API REST con Postman y Supertest
 
 ## 1. Introducción
-Para la validación del sistema E-commerce se estructuró una suite de 10 casos de prueba automatizados enfocados en dos módulos críticos: **Búsqueda y Filtros** y el **Carrito de Compras**. 
+Para la validación del sistema E-commerce se hizo 10 casos de prueba automatizados enfocados en dos módulos críticos: **Búsqueda y Filtros** y el **Carrito de Compras**. 
 
 Debido a que las plataformas que escogi Mercado Libre es un comercial bastante cerrado. Se optó por utilizar **FakeStore API** (`https://fakestoreapi.com`). Esta es una API REST pública y abierta especializada en entornos de comercio electrónico que permite ejecutar varias peticiones HTTP (`GET`, `POST`, `PUT`, `DELETE`), garantizando que las pruebas de integración sean estables y reproducibles.
 
@@ -119,8 +119,7 @@ El codigo esta en tests/api.test.js
 
 <img width="472" height="360" alt="Captura de pantalla 2026-06-22 233520" src="https://github.com/user-attachments/assets/4c6d917a-6442-4621-b8eb-9522f3d07831" />
 
-Tras ejecutar el comando `npm test`, la suite desarrollada bajo **Jest** y **Supertest** arrojó un resultado de **éxito rotundo (100% PASS)**. A continuación, se detallan las métricas clave obtenidas en la ejecución del pipeline:
-
+Tras ejecutar el comando `npm test`, la suite desarrollada bajo **Jest** y **Supertest** arrojó un buen resultado.
 * **Cobertura de Casos:** Se completaron con éxito los **10 casos de uso programados**, distribuidos equitativamente entre el análisis de catálogos/filtros y del carrito de compras.
 * **Eficiencia Temporal:** El tiempo total de ejecución e intercambio de paquetes de red asíncronos con el servidor de *FakeStore API* fue de **8.652 segundos**, promediando menos de un segundo por petición HTTP individual. Esto evidencia la alta escalabilidad que ofrece la automatización frente a los ciclos manuales de pruebas en clientes visuales.
 
