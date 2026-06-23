@@ -1,4 +1,10 @@
 # Pruebas-de-API-REST-con-Postman
+
+* **Nombre:** Grissel Arascely Rodríguez Quispe
+* **Codigo:** 2722215
+* **Herramientas:**
+  
+    Jest, Supertest
 ## 1. Introducción
 Se hara uso de la **API Oficial de Desarrolladores de Mercado Libre** solopara analizar el Sistema de Mercado Libre (`api.mercadolibre.com`). Se seleccionaron endpoints públicos que sustentan el módulo de búsqueda y catálogo de la plataforma, ejecutando las pruebas de peticiones HTTP a través del cliente Postman.
 
@@ -10,15 +16,13 @@ Como parte del alcance inicial de la investigación, se consultó la documentaci
 A continuación, se detalla la evidencia de las peticiones ejecutadas:
 
 * **Consulta de Catálogo en Mercado Libre Perú (MPE):**
-  Se realizó una petición `GET` al recurso de búsquedas utilizando parámetros de filtrado geográfico y términos de consulta clave para emular la experiencia del e-commerce local.
-  
-  ```text
-  GET https://api.mercadolibre.com/users/me?Content-Type&A=
 
   El resultado en JSON:
-  
 
-  A pesar de conseguir acceso limitado estaba muy restringido debido a la Restricción de Operaciones de Escritura (POST, PUT, DELETE) entonces los módulos relacionados al Carrito de Compras de Mercado Libre no son públicos. Requieren obligatoriamente el registro de una aplicación en su portal de desarrolladores, vinculación de cuentas reales y un flujo de autenticación completo. Entonces se realizó el mapeo de los 10 casos sobre FakeStore API, manteniendo intacta la lógica comercial.
+  <img width="533" height="270" alt="Resultado" src="https://github.com/user-attachments/assets/0fb49ab1-04c0-4298-965f-9af0b7627e9b" />
+
+
+  A pesar de conseguir acceso limitado, estaba muy restringido debido a la Restricción de Operaciones de Escritura (POST, PUT, DELETE) entonces los módulos relacionados no son públicos. Requieren obligatoriamente el registro de una aplicación en su portal de desarrolladores, vinculación de cuentas reales y un flujo de autenticación de solo 6 horas. Entonces se realizó el mapeo de los 10 casos sobre FakeStore API, manteniendo intacta la lógica comercial.
 ---
 
 ## 2. Ejecución de Pruebas y Casos de Uso
@@ -28,7 +32,7 @@ A continuación, se detalla la evidencia de las peticiones ejecutadas:
 ## 1. Introducción
 Para la validación del sistema E-commerce se estructuró una suite de 10 casos de prueba automatizados enfocados en dos módulos críticos: **Búsqueda y Filtros** y el **Carrito de Compras**. 
 
-Debido a que las plataformas comerciales cerradas (como Mercado Libre) imponen restricciones estrictas de seguridad, registros de aplicaciones de terceros y tokens de acceso OAuth dinámicos que expiran rápidamente, se optó por utilizar **FakeStore API** (`https://fakestoreapi.com`). Esta es una API REST pública y abierta especializada en entornos de comercio electrónico que permite ejecutar de forma limpia y transparente todo el ciclo de peticiones HTTP (`GET`, `POST`, `PUT`, `DELETE`), garantizando que las pruebas de integración sean estables y reproducibles.
+Debido a que las plataformas que escogi Mercado Libre es un comercial bastante cerrado. Se optó por utilizar **FakeStore API** (`https://fakestoreapi.com`). Esta es una API REST pública y abierta especializada en entornos de comercio electrónico que permite ejecutar varias peticiones HTTP (`GET`, `POST`, `PUT`, `DELETE`), garantizando que las pruebas de integración sean estables y reproducibles.
 
 ---
 
@@ -107,7 +111,18 @@ Para optimizar el proceso de pruebas y asegurar la estabilidad de la API ante fu
 
 ### Archivo de Pruebas: `tests/api.test.js`
 
-El código fuente implementado en el nuevo repositorio utiliza aserciones asíncronas para evaluar las respuestas del servidor en milisegundos.
+El código fuente implementado en el nuevo repositorio donde se evalua las respuestas del servidor en milisegundos.
 
 El codigo esta en tests/api.test.js
+
+### Resultados de npm test con supertest
+
+<img width="472" height="360" alt="Captura de pantalla 2026-06-22 233520" src="https://github.com/user-attachments/assets/4c6d917a-6442-4621-b8eb-9522f3d07831" />
+
+Tras ejecutar el comando `npm test`, la suite desarrollada bajo **Jest** y **Supertest** arrojó un resultado de **éxito rotundo (100% PASS)**. A continuación, se detallan las métricas clave obtenidas en la ejecución del pipeline:
+
+* **Cobertura de Casos:** Se completaron con éxito los **10 casos de uso programados**, distribuidos equitativamente entre el análisis de catálogos/filtros y del carrito de compras.
+* **Eficiencia Temporal:** El tiempo total de ejecución e intercambio de paquetes de red asíncronos con el servidor de *FakeStore API* fue de **8.652 segundos**, promediando menos de un segundo por petición HTTP individual. Esto evidencia la alta escalabilidad que ofrece la automatización frente a los ciclos manuales de pruebas en clientes visuales.
+
+
 
