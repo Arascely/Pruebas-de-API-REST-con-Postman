@@ -1,0 +1,17 @@
+{
+  "name": "api-testing-fakestore",
+  "version": "1.0.0",
+  "description": "Pruebas automatizadas con Jest y Supertest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --reporters=default --reporters=jest-html-reporter"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "jest-html-reporter": "^4.4.0",
+    "supertest": "^7.2.2"
+  }
+}
