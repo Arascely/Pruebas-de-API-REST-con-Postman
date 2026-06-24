@@ -87,4 +87,4 @@ describe('Pruebas de API REST - Sistema E-commerce (Supertest)', () => {
             expect(response.body.length).toBeGreaterThanOrEqual(0);
         });
     });
-});
+}); 
